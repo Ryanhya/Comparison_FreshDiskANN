@@ -1,0 +1,148 @@
+{
+    "configurations": [
+        {
+            "name": "build_disk_index",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/tests/build_disk_index",
+            "args": [
+                "float",
+                //"~/datasets/embeddings/test/batches/base_embeddings100", //dataFilePath
+                "~/datasets/embeddings/sift1m/batches/base_embeddings10",
+                //"~/baselines/DiskANN_Baseline/data/index_data/argoverse2_base", //indexFilePath
+                "~/baselines/DiskANN_Baseline/data/index_data/sift1m_base",
+                "64", //R
+                "75", //L
+                "4", //ram capacity
+                "4", //indexing_ram_budget
+                "16", //num_threads
+                "l2",//distance_metric 
+                "0" //single_file_index
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+
+        {
+            "name": "overall_performance",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/tests/overall_performance",
+            "args": [
+                //argoverse2 dataset
+
+                // "float",
+                // "~/datasets/embeddings/test/batches/base_embeddings100",//data_path in build(), the first parameter
+                // "75",//L_mem
+                // "16",//R_mem
+                // "1", //alpha_mem
+                // "75", //L_disk
+                // "32",//R_disk
+                // "1", //alpha_disk
+                // "1239", //num_start               
+                // "1",//num_shards
+                // "25", //num_pq_chunks
+                // "0", //nodes_to_cache
+                // "~/baselines/DiskANN_Baseline/data/index_data/argoverse2_base",//save_path              
+                // "true", //updateIndex
+                // "true", //buildIndex
+                // "~/datasets/embeddings/test/base_embeddings.bin", //full_data_path               
+                // "~/datasets/embeddings/test/query_embeddings.bin", //query_path               
+                // "~/datasets/embeddings/test/truth/truth_embeddings_", //truthset
+                // "10", //recall_at
+                // "40", //Lsearch
+                // "2", //beam_width
+                // "~/datasets/embeddings/test/query_vector_range.bin",//trace_file_prefix              
+                // "256",//dim
+
+                // "1000",//step               
+                // "1000",//start_num
+                // "10000",//end_num
+                // "true",//streaming
+                // "10",//total_time(s)
+                // "1"//time_unit(s)
+
+                // // "1000",//step               
+                // // "3000",//start_num
+                // // "3000",//end_num
+                // // "false",//streaming
+                // // "10",//total_time(s)
+                // // "1"//time_unit(s)
+
+
+                //sift dataset
+
+                "float",               
+                "~/datasets/embeddings/sift1m/batches/base_embeddings10",//data_path in build(), the first parameter
+                "75",//L_mem
+                "16",//R_mem out-degree
+                "1", //alpha_mem
+                "75", //L_disk
+                "32",//R_disk out-degree
+                "1", //alpha_disk                
+                "1081",//num_start
+                "1",//num_shards
+                "25", //num_pq_chunks
+                "0", //nodes_to_cache               
+                "~/baselines/DiskANN_Baseline/data/index_data/sift1m_base",//save_path
+                "true", //updateIndex
+                "true", //buildIndex               
+                "~/datasets/embeddings/sift1m/base_embeddings.bin",//full_data_path                
+                "~/datasets/embeddings/sift1m/query_embeddings.bin",//query_path               
+                "~/datasets/embeddings/sift1m/truth/truth_embeddings_",//truthset
+                "10", //recall_at
+                "40", //Lsearch
+                "2", //beam_width               
+                "~/datasets/embeddings/sift1m/query_vector_range.bin",//trace_file_prefix                
+                "128",//dim
+
+                "100",//step                
+                "100",//start_num               
+                "1000",//end_num
+                "true",//streaming
+                "10",//total_time(s)
+                "1"//time_unit(s)
+
+                // "100",//step               
+                // "1000",//start_num
+                // "1000",//end_num
+                // "false",//streaming
+                // "10",//total_time(s)
+                // "1"//time_unit(s)
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+        
+    ]
+}
